@@ -1,5 +1,6 @@
 
 $(document).ready(function() { 
+	var Bill = true;
      $('html,body').animate({
          scrollTop: $(".all").offset().top
      },'slow');
@@ -64,7 +65,7 @@ $('.strat').css({'transform':'translate(-200px)'});
 
 $(window).on('scroll',function(){
    var top = $(window).scrollTop();
-    if (top > 50) {
+    if (top > 50 && Bill == true) {
         $('.fa-hand-pointer').fadeIn(500);
         $('.area_2').css({'transform':'translate(0px)','transition':'1.3s'});
     }else{
@@ -166,18 +167,19 @@ $(".fa-arrow-down").click(function(){
             })
             rot = false;
         }
-        if ($(window).width() < 1000) {
+        if ($(window).width() < 1000 && Bill == true) {
             $('.area_2').fadeIn(800);
             $('.area_2').css({'transform':'translate(0px)','transition':'1.3s'}); 
         }
     })
     $(document).ready(function(){
-        if ($(window).width() < 1000) {
+        if ($(window).width() < 1000 && Bill == true) {
             $('.area_2').fadeIn(800);
             $('.area_2').css({'transform':'translate(0px)','transition':'1.3s'}); 
         } 
     })
 $(".button_more").click(function(){
+	Bill = false;
     $('.area_2').css({'transform':'translate(-1500px)','transition':'1.3s'});
     $('.area_2').fadeOut();
     setTimeout(function(){
@@ -191,6 +193,7 @@ $(".button_more").click(function(){
     },1000)
 })
 $(".button_back").click(function(){
+	Bill == true;
     $('.wikipedia').css({'transform':'translate(-1500px)','transition':'1.3s'});
     $('.wikipedia').fadeOut();
     setTimeout(function(){
